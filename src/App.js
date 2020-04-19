@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Weather from "./Pages/Weather"
 import Dashboard from "./Pages/Dashboard"
 
+
 const App = () => {
   return (
     <div>
