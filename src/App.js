@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Weather from "./Pages/Weather"
 import Dashboard from "./Pages/Dashboard"
@@ -6,7 +6,7 @@ import Dashboard from "./Pages/Dashboard"
 
 const App = () => {
   return (
-    <div>
+    <Fragment>
       <Router>
       <Switch>
         <Route path="/" exact>
@@ -17,7 +17,7 @@ const App = () => {
         </Route>
       </Switch>
     </Router>
-    </div>
+    </Fragment>
   )
 }
 
