@@ -1,14 +1,14 @@
 import React, {Fragment} from 'react'
-// import TopNav from '../../Component/TopNav'
-// import Footer from '../../Component/Footer'
 import Header from '../../Component/Header'
-import Sidebar from '../../Component/Sidebar/Sidebar'
+import Container from '../../Component/Container/Container'
+// import Footer from '../../Component/Footer/Footer'
 
 const Dashboard = () => {
     return (
         <Fragment>
             <Header />
-            <Sidebar />
+            <Container />
+            {/* <Footer /> */}
         </Fragment>
     )
 }

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Weather from "./Pages/Weather"
-import Dashboard from "./Pages/Dashboard"
+import Dashboard from "./Pages/Dashboard/Dashboard"
 
 
 const App = () => {
