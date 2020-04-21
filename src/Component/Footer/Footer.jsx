@@ -1,16 +1,12 @@
 import React, {Fragment} from 'react'
-import './style.css'
+// import './style.css'
 
 const Footer = () => {
     return (
         <Fragment>
-            <footer className="footer container-fluid pl-30 pr-30">
-                <div className="row">
-                    <div className="col-sm-12">
-                        <p>2020 © Sekolah Tinggi Meteorologi Klimatologi dan Geofisika</p>
-                    </div>
-                </div>
-            </footer>
+                    <p className="container">
+                        Copyright © 2020 | <a href="https://stmkg.ac.id">Sekolah Tinggi Meteorologi Klimatologi dan Geofisika</a>
+                    </p>
         </Fragment>
     )
 }

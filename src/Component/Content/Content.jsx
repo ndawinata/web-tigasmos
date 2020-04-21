@@ -9,6 +9,7 @@ import Followers from '../Followers/Followers'
 import Article from '../Article/Article'
 import PendingTask from '../PendingTask/PendingTask'
 import Members from '../Members/Members'
+import Maps from '../Maps/Maps'
 
 const Content = () => {
 return (
@@ -26,6 +27,7 @@ return (
                 <Article />
                 <PendingTask />
                 <Members />
+                <Maps />
             </div>
         </div>
     </div>
