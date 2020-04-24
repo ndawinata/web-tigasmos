@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import "./style.css";
+import "./modules-widgets.css"
 
 const Header = () => {
   return (
     <Fragment>
       <div className="header-container fixed-top">
         <header className="header navbar navbar-expand-sm expand-header">
-          <a href className="sidebarCollapse mouseku" data-placement="bottom">
+          <span className="sidebarCollapse click" data-placement="bottom">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -14,16 +15,16 @@ const Header = () => {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="feather feather-menu"
             >
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
-          </a>
+          </span>
 
           <ul className="navbar-item flex-row ml-auto">
             <li className="nav-item align-self-center search-animated">
@@ -34,9 +35,9 @@ const Header = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="feather feather-search toggle-search"
               >
                 <circle cx="11" cy="11" r="8"></circle>
@@ -57,9 +58,8 @@ const Header = () => {
             </li>
 
             <li className="nav-item dropdown notification-dropdown">
-              <a
-                href
-                className="nav-link dropdown-toggle mouseku"
+              <span
+                className="nav-link dropdown-toggle click"
                 id="notificationDropdown"
                 data-toggle="dropdown"
                 aria-haspopup="true"
@@ -72,16 +72,16 @@ const Header = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="feather feather-bell"
                 >
                   <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                   <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                 </svg>
                 <span className="badge badge-success"></span>
-              </a>
+              </span>
               <div
                 className="dropdown-menu position-absolute e-animated e-fadeInUp"
                 aria-labelledby="notificationDropdown"
@@ -96,9 +96,9 @@ const Header = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="feather feather-message-square"
                       >
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -122,9 +122,9 @@ const Header = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="feather feather-thumbs-up"
                       >
                         <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
@@ -148,9 +148,9 @@ const Header = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="feather feather-send"
                       >
                         <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -172,9 +172,8 @@ const Header = () => {
             </li>
 
             <li className="nav-item dropdown user-profile-dropdown  order-lg-0 order-1">
-              <a
-                href
-                className="nav-link dropdown-toggle user mouseku"
+              <span
+                className="nav-link dropdown-toggle user click"
                 id="userProfileDropdown"
                 data-toggle="dropdown"
                 aria-haspopup="true"
@@ -187,16 +186,16 @@ const Header = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="feather feather-user-check"
                 >
                   <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                   <circle cx="8.5" cy="7" r="4"></circle>
                   <polyline points="17 11 19 13 23 9"></polyline>
                 </svg>
-              </a>
+              </span>
               <div
                 className="dropdown-menu position-absolute e-animated e-fadeInUp"
                 aria-labelledby="userProfileDropdown"
@@ -223,9 +222,9 @@ const Header = () => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       className="feather feather-user"
                     >
                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -243,9 +242,9 @@ const Header = () => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       className="feather feather-inbox"
                     >
                       <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
@@ -263,9 +262,9 @@ const Header = () => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       className="feather feather-lock"
                     >
                       <rect
@@ -290,9 +289,9 @@ const Header = () => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       className="feather feather-log-out"
                     >
                       <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>

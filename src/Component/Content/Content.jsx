@@ -1,6 +1,4 @@
 import React, {Fragment} from 'react'
-import Statistics from '../Statistics/Statistics'
-import Proplan from '../Proplan/Proplan'
 import Expenses from '../Expenses/Expenses'
 import UniqueVisitor from '../UniqueVisitor/UniqueVisitor'
 import Notifications from '../Notifications/Notifications'
@@ -10,6 +8,8 @@ import Article from '../Article/Article'
 import PendingTask from '../PendingTask/PendingTask'
 import Members from '../Members/Members'
 import Maps from '../Maps/Maps'
+import Statistics from '../Statistics/Statistics'
+import Proplan from '../Proplan/Proplan'
 
 const Content = () => {
 return (

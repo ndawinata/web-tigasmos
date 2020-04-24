@@ -12,8 +12,8 @@ const MapPopUp = (props) => {
                     </a> 
                     <hr />
                     Nilai Pasut : <br />
-                    Sensor Ultrasonik : {props.nilai.ultrasonik} <br />
-                    Sensor Tekanan : {props.nilai.tekanan}
+                    Sensor Ultrasonik : {props.nilai.pasut_sensor_ultrasonik} <br />
+                    Sensor Tekanan : {props.nilai.pasut_sensor_tekanan}
                 </Popup>
             </Marker>
         </Fragment>

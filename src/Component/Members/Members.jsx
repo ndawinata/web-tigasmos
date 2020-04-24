@@ -25,7 +25,7 @@ const Members = () => {
                                         <img src="assets/img/90x90.jpg" alt="avatar" />
                                         <img src="assets/img/90x90.jpg" alt="avatar" />
                                     </div>
-                                    <a href style={{cursor:"pointer"}} className="btn">View Details</a>
+                                    <a href="/dada" style={{cursor:"pointer"}} className="btn">View Details</a>
                                 </div>
                             </div>
                         </div>

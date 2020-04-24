@@ -18,7 +18,7 @@ const Notifications = () => {
                                     <div className="t-dot">
                                         <div className="t-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                                 className="feather feather-check">
                                                 <polyline points="20 6 9 17 4 12"></polyline>
                                             </svg></div>
@@ -41,7 +41,7 @@ const Notifications = () => {
                                     <div className="t-dot">
                                         <div className="t-success"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                                 className="feather feather-mail">
                                                 <path
                                                     d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
@@ -54,7 +54,7 @@ const Notifications = () => {
                                             <h5>Mail</h5>
                                             <span className="">28 Feb, 2020</span>
                                         </div>
-                                        <p>Send Mail to <a href style={{cursor:"pointer"}}>HR</a> and <a href
+                                        <p>Send Mail to <a href="/dada" style={{cursor:"pointer"}}>HR</a> and <a href="/dada"
                                                 style={{cursor:"pointer"}}>Admin</a></p>
                                         <div className="tags">
                                             <div className="badge badge-primary">Admin</div>
@@ -68,7 +68,7 @@ const Notifications = () => {
                                     <div className="t-dot">
                                         <div className="t-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                                 className="feather feather-check">
                                                 <polyline points="20 6 9 17 4 12"></polyline>
                                             </svg></div>
@@ -90,7 +90,7 @@ const Notifications = () => {
                                     <div className="t-dot">
                                         <div className="t-warning"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                                 className="feather feather-file">
                                                 <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z">
                                                 </path>
@@ -102,7 +102,7 @@ const Notifications = () => {
                                             <h5>Collect Docs</h5>
                                             <span className="">10 Mar, 2020</span>
                                         </div>
-                                        <p>Collected documents from <a href style={{cursor:"pointer"}}>Sara</a></p>
+                                        <p>Collected documents from <a href="/dada" style={{cursor:"pointer"}}>Sara</a></p>
                                         <div className="tags">
                                             <div className="badge badge-success">Collect</div>
                                             <div className="badge badge-warning">Docs</div>
@@ -114,7 +114,7 @@ const Notifications = () => {
                                     <div className="t-dot">
                                         <div className="t-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                                 className="feather feather-server">
                                                 <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
                                                 <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
