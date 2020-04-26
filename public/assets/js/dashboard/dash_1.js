@@ -452,6 +452,7 @@ try {
     // Paid Visits
     d_1C_2 = new ApexCharts(document.querySelector("#paid-visits"), spark2);
     d_1C_2.render();
+    
 
     /*
         ===================================
