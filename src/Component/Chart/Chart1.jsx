@@ -1,16 +1,20 @@
 import React, {useState, useEffect, Fragment} from 'react'
 import Axios from 'axios'
 import ReactApexChart from 'react-apexcharts'
+import ApexCharts from "apexcharts"
+import socketIOClient from 'socket.io-client'
 
+const io = socketIOClient("http://localhost:5000")
 
 const Chart1 = () => {
-    let [site, setSite] = useState('site-2')
+    
+    let [site, setSite] = useState('site-1')
     let [sensor, setSensor] = useState('tekanan')
     let [realtime, setRealtime] = useState(false)
 
     let [series, setSeries] = useState(
         [{
-            data: [["2020-03-25T07:37:18.150Z", 30.95]]
+            data: []
         }]
     )
 
@@ -65,7 +69,7 @@ const Chart1 = () => {
 
     let handleChangeRealtime = () =>{ 
         setRealtime(!realtime)
-        // switch1===false ? (getSocket()):(getServer())
+        // realtime===false ? (getSocket()):(getServer())
     }
 
     let handleChangeSensor = (e) => {
@@ -97,8 +101,28 @@ const Chart1 = () => {
                         data : a
                     }]
                 )
+                
             })
-    },[site,sensor]);
+        // realtime
+        io.on(site, (data)=>{
+                // console.log(series[0].data)
+                // console.log(data.date)
+                
+                if  (sensor === 'tekanan'){
+                    series[0].data.push([data.date, data.pasut_sensor_tekanan])
+                } else {
+                    series[0].data.push([data.date, data.pasut_sensor_ultrasonik])
+                }
+                if (realtime===true){
+                    ApexCharts.exec('area-datetime', 'updateSeries', [{
+                        data:series[0].data
+                    }])
+                }
+                
+            }
+        )
+        // ----- Realtime -----
+    },[site,sensor,realtime]);
 
     //  [site] => use effect akan dijalan kan ulang setiap site 'site' berubah
 
