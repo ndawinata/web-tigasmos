@@ -11,6 +11,7 @@ import Maps from '../Maps/Maps'
 // import Statistics from '../Statistics/Statistics'
 import Proplan from '../Proplan/Proplan'
 import Chart1 from '../Chart/Chart1'
+import Weather from '../Weather/Weather'
 // import Chart from '../Chart/Chart'
 
 const Content = () => {
@@ -19,6 +20,9 @@ return (
     <div id="content" className="main-content">
         <div className="layout-px-spacing">
             <div className="row layout-top-spacing">
+                <Weather/>
+                <PendingTask />
+                <Members />
                 <Chart1 />
                 <Maps />
                 {/* <Statistics /> */}
@@ -29,8 +33,7 @@ return (
                 <Visitors />
                 <Followers />
                 <Article />
-                <PendingTask />
-                <Members />
+                
                 {/* <Chart /> */}
             </div>
         </div>
