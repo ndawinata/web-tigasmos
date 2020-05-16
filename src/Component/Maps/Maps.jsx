@@ -1,13 +1,15 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect  } from 'react'
 import { Map, TileLayer } from 'react-leaflet'
 import MapPopUp from '../MapPopUp/MapPopUp'
 import 'react-leaflet-fullscreen-control'
 import socketIOClient from 'socket.io-client'
 import axios from 'axios'
+import { GlobalConsumer } from '../context/context'
 
-const Maps = () => {
-  let [switch1, setSwitch1] = useState(false)
- 
+
+
+const Maps = (props) => {
+  
   let [nilaiSite1, setNilaiSite1] = useState({
     pasut_sensor_tekanan:0,
     pasut_sensor_ultrasonik:0
@@ -38,68 +40,47 @@ const Maps = () => {
   })
   const [zoom] = useState(11)
 
-  let handleChange = () =>{ 
-    setSwitch1(!switch1)
-    switch1===false ? (getSocket()):(getServer())
-  }
-
-  let getServer = () => {
-    axios('http://localhost:5000/api/site-1')
-      .then((value) => {
-        setNilaiSite1(value.data.datas[value.data.datas.length-1])
-      })
-    axios('http://localhost:5000/api/site-1')
-      .then((value) => {
-        setNilaiSite2(value.data.datas[value.data.datas.length-1])
-      })
-    axios('http://localhost:5000/api/site-1')
-      .then((value) => {
-        setNilaiSite3(value.data.datas[value.data.datas.length-1])
-      })
-  }
-
-  let getSocket = () => {
-    const io = socketIOClient("http://localhost:5000")
-    io.on("site1", (data) => setNilaiSite1(data))
-    io.on("site2", (data) => setNilaiSite2(data))
-    io.on("site3", (data) => setNilaiSite3(data))
-  }
   useEffect(() => {
-    axios('http://localhost:5000/api/site-1')
-      .then((value) => {
-        setNilaiSite1(value.data.datas[value.data.datas.length-1])
-      })
-    axios('http://localhost:5000/api/site-2')
-      .then((value) => {
-        setNilaiSite2(value.data.datas[value.data.datas.length-1])
-      })
-    axios('http://localhost:5000/api/site-3')
-      .then((value) => {
-        setNilaiSite3(value.data.datas[value.data.datas.length-1])
-      })
-  },[])
+    
+      let io = socketIOClient("http://localhost:5000")
+      io.on("site-1", (data) => setNilaiSite1(data))
+      io.on("site-2", (data) => setNilaiSite2(data))
+      io.on("site-3", (data) => setNilaiSite3(data))
 
+      axios('http://localhost:5000/api/site-1')
+        .then((value) => {
+          setNilaiSite1(value.data.datas[value.data.datas.length-1])
+        })
+      axios('http://localhost:5000/api/site-2')
+        .then((value) => {
+          setNilaiSite2(value.data.datas[value.data.datas.length-1])
+        })
+      axios('http://localhost:5000/api/site-3')
+        .then((value) => {
+          setNilaiSite3(value.data.datas[value.data.datas.length-1])
+        })
+  },[])
+  
   return (
     <Fragment>
-      <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
+      <div className={`col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing ${props.state.maps_enable}`}>
         <div className="widget widget-activity-three">
           <div className="widget-heading">
-            <h5 className="">Tigasmos Site</h5>
-            <div className="custom-control custom-switch">
-            <input 
-            type="checkbox" 
-            className="custom-control-input" 
-            id="customSwitch1" 
-            checked={switch1} 
-            onChange={handleChange}
-            />
-            <label className="custom-control-label" htmlFor="customSwitch1">Realtime</label>
+            <h5 className="">Tigasmos Site Map</h5>
+            <div className="task-action">
+              <div className="container">
+                <button type="button" onClick={()=>{props.dispatch({type:'maps_inactive'})}}
+                  className="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
           </div>
-          </div>
+
           <div className="widget-content mr-3">
 
             <Map fullscreenControl center={[center.lat, center.lng]} zoom={zoom}
-              style={{ width: '100%', height: '350px'}}>
+              style={{ width: '100%', height: '275px'}}>
               <TileLayer attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
@@ -114,4 +95,4 @@ const Maps = () => {
   )
 }
 
-export default Maps
+export default GlobalConsumer(Maps)

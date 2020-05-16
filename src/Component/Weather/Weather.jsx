@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Axios from 'axios'
 import moment from 'moment'
 
-const key = '59f2ab33ebb2defe6a1d5e6f8d546c42'
+const key = '59f2ab33ebb2defe6a1d5e6f8d546b42'
     // ganti key dengan ini -> '59f2ab33ebb2defe6a1d5e6f8d546b42' ganti key dengan ini
 const url = `http://api.weatherstack.com/current?access_key=${key}&query=`
 

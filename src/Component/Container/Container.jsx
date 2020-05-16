@@ -11,10 +11,8 @@ const Container = () => {
                 <div className="overlay"></div>
                 <div className="cs-overlay"></div>
                 <div className="search-overlay"></div>
-                {/* Sidebar */}
+                
                 <Sidebar />
-
-                {/* Content */}
                 <Content />
 
             </div>

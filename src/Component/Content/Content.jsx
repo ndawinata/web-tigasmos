@@ -10,8 +10,11 @@ import Members from '../Members/Members'
 import Maps from '../Maps/Maps'
 // import Statistics from '../Statistics/Statistics'
 import Proplan from '../Proplan/Proplan'
-import Chart1 from '../Chart/Chart1'
 import Weather from '../Weather/Weather'
+import Analog from '../Clock/Analog/Analog'
+import Kalender from '../Kalender/Kalender'
+import Chart from '../Chart/Chart'
+
 // import Chart from '../Chart/Chart'
 
 const Content = () => {
@@ -20,13 +23,16 @@ return (
     <div id="content" className="main-content">
         <div className="layout-px-spacing">
             <div className="row layout-top-spacing">
-                <Weather/>
+                {/* <Weather/> */}
+                <Analog />
+                {/* <Kalender /> */}
                 <PendingTask />
                 <Members />
-                <Chart1 />
+                <Chart />
                 <Maps />
                 {/* <Statistics /> */}
                 <Proplan />
+                
                 <Expenses />
                 {/* <UniqueVisitor /> */}
                 <Notifications />

@@ -253,7 +253,10 @@
       margin-bottom: 0; }
 
 .widget-activity-three .widget-content {
-  padding: 20px 10px 20px 20px; }
+  padding: 10px 20px 20px 20px; }
+
+.widget-activity-three .widget-content-one {
+  padding: 5px 20px 25px 20px; }
 
 .widget-activity-three .mt-container {
   position: relative;
