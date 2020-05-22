@@ -23,25 +23,26 @@ return (
     <div id="content" className="main-content">
         <div className="layout-px-spacing">
             <div className="row layout-top-spacing">
-                {/* <Weather/> */}
+                
                 <Analog />
                 <Maps />
                 <Notifications />
+                <Weather/>
                 <Chart />
                 {/* <Kalender /> */}
-                <PendingTask />
+                {/* <PendingTask />
                 <Members />
-                
+                 */}
                 
                 {/* <Statistics /> */}
-                <Proplan />
+                {/* <Proplan />
                 
-                <Expenses />
+                <Expenses /> */}
                 {/* <UniqueVisitor /> */}
                 
-                <Visitors />
+                {/* <Visitors />
                 <Followers />
-                <Article />
+                <Article /> */}
                 
                 {/* <Chart /> */}
             </div>
