@@ -445,13 +445,13 @@ try {
         ======================================
     */
 
-    // Total Visits
-    d_1C_1 = new ApexCharts(document.querySelector("#total-users"), spark1);
-    d_1C_1.render();
+    // // Total Visits
+    // d_1C_1 = new ApexCharts(document.querySelector("#total-users"), spark1);
+    // d_1C_1.render();
 
-    // Paid Visits
-    d_1C_2 = new ApexCharts(document.querySelector("#paid-visits"), spark2);
-    d_1C_2.render();
+    // // Paid Visits
+    // d_1C_2 = new ApexCharts(document.querySelector("#paid-visits"), spark2);
+    // d_1C_2.render();
     
 
     /*
@@ -460,11 +460,11 @@ try {
         ===================================
     */
 
-    var d_1C_3 = new ApexCharts(
-        document.querySelector("#uniqueVisits"),
-        d_1options1
-    );
-    d_1C_3.render();
+    // var d_1C_3 = new ApexCharts(
+    //     document.querySelector("#uniqueVisits"),
+    //     d_1options1
+    // );
+    // d_1C_3.render();
 
     /*
         ==============================
@@ -475,18 +475,18 @@ try {
 
     // Followers
 
-    var d_1C_5 = new ApexCharts(document.querySelector("#hybrid_followers"), d_1options3);
-    d_1C_5.render()
+    // var d_1C_5 = new ApexCharts(document.querySelector("#hybrid_followers"), d_1options3);
+    // d_1C_5.render()
 
-    // Referral
+    // // Referral
 
-    var d_1C_6 = new ApexCharts(document.querySelector("#hybrid_followers1"), d_1options4);
-    d_1C_6.render()
+    // var d_1C_6 = new ApexCharts(document.querySelector("#hybrid_followers1"), d_1options4);
+    // d_1C_6.render()
 
-    // Engagement Rate
+    // // Engagement Rate
 
-    var d_1C_7 = new ApexCharts(document.querySelector("#hybrid_followers3"), d_1options5);
-    d_1C_7.render()
+    // var d_1C_7 = new ApexCharts(document.querySelector("#hybrid_followers3"), d_1options5);
+    // d_1C_7.render()
 
 
 
@@ -495,7 +495,7 @@ try {
           Perfect Scrollbar | Notifications
       =============================================
   */
-  const ps = new PerfectScrollbar(document.querySelector('.mt-container'));
+  // const ps = new PerfectScrollbar(document.querySelector('.mt-container'));
 
 
 } catch(e) {

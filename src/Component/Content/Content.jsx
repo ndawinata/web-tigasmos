@@ -25,17 +25,20 @@ return (
             <div className="row layout-top-spacing">
                 {/* <Weather/> */}
                 <Analog />
+                <Maps />
+                <Notifications />
+                <Chart />
                 {/* <Kalender /> */}
                 <PendingTask />
                 <Members />
-                <Chart />
-                <Maps />
+                
+                
                 {/* <Statistics /> */}
                 <Proplan />
                 
                 <Expenses />
                 {/* <UniqueVisitor /> */}
-                <Notifications />
+                
                 <Visitors />
                 <Followers />
                 <Article />

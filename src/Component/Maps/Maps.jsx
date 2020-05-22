@@ -76,14 +76,11 @@ const Maps = (props) => {
               </div>
             </div>
           </div>
-
-          <div className="widget-content mr-3">
-
+          <div className="widget-content">
             <Map fullscreenControl center={[center.lat, center.lng]} zoom={zoom}
-              style={{ width: '100%', height: '275px'}}>
+              style={{ width: '100%', height: '320px'}}>
               <TileLayer attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
               <MapPopUp nama="Site 1" lokasi={[site1.lat, site1.lng]} nilai={nilaiSite1} />
               <MapPopUp nama="Site 2" lokasi={[site2.lat, site2.lng]} nilai={nilaiSite2} />
               <MapPopUp nama="Site 3" lokasi={[site3.lat, site3.lng]} nilai={nilaiSite3} />

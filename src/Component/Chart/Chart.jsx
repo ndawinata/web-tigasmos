@@ -5,7 +5,6 @@ import ApexCharts from "apexcharts"
 import socketIOClient from 'socket.io-client'
 import { GlobalConsumer } from '../context/context'
 
-
 const io = socketIOClient("http://localhost:5000")
 
 class Chart extends Component {
@@ -27,6 +26,7 @@ class Chart extends Component {
                 id: 'area-datetime',
                 type: 'area',
                 height: 350,
+                fontFamily:'Nunito, sans-serif',
                 zoom: {
                     autoScaleYaxis: true
                 }
@@ -42,6 +42,21 @@ class Chart extends Component {
                 type: 'datetime',
                 min: new Date('2020-04-22T19:00:00').getTime(),
                 tickAmount: 6,
+                title:{
+                    text: 'Datetime',
+                    offsetY: 15,
+                    style:{
+                        fontSize:'14px'
+                    }
+                }
+            },
+            yaxis: {
+                title:{
+                    text: 'Meter',
+                    style:{
+                        fontSize:'14px'
+                    }
+                }
             },
             tooltip: {
                 x: {
@@ -94,7 +109,6 @@ class Chart extends Component {
 
     fungsiRealtime = (value) =>{
         io.on(value, (data) => {
-            console.log(this.state.sensor)
             if (this.state.sensor === 'tekanan') {
                 this.state.series[0].data.push([data.date, data.pasut_sensor_tekanan])
             } else {
@@ -151,7 +165,7 @@ class Chart extends Component {
                             </div>
                         </div>
                         <div className="w-content">
-                            <div className="w-content mt-2 mr-3 ">
+                            <div className="w-content mt-2 mx-3 px-2 py-1">
                                 <ReactApexChart  options={this.state.options} series={this.state.series} type="area"
                                     height="250" width="100%" />
                             </div>
