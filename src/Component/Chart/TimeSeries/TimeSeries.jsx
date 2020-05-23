@@ -3,55 +3,43 @@ import { GlobalConsumer } from '../../context/context'
 import ReactApexChart from 'react-apexcharts'
 
 class TimeSeries extends Component {
-
     state={
         options:{
             chart: {
-                id: 'area-datetime',
+                id: 'sparkline1',
                 type: 'area',
-                height: 350,
-                zoom: {
-                    autoScaleYaxis: true
-                }
+                height: 160,
+                sparkline: {
+                    enabled: true
+                },
             },
-            dataLabels: {
-                enabled: false
+            stroke: {
+                curve: 'smooth',
+                width: 2,
             },
-            markers: {
-                size: 0,
-                style: 'hollow',
+            labels: ['1', '2', '3', '4', '5', '6', '7'],
+            yaxis: {
+                min: 0
             },
-            xaxis: {
-                type: 'datetime',
-                min: new Date('1 Apr 2020').getTime(),
-                tickAmount: 6,
-            },
+            colors: [this.props.color],
             tooltip: {
                 x: {
-                    format: 'dd MMM yy | HH:MM'
-                },
-                theme: "dark"
+                    show: false,
+                }
             },
             fill: {
-                type: 'gradient',
+                opacity: 1,
+                type: "gradient",
                 gradient: {
+                    type: "vertical",
                     shadeIntensity: 1,
-                    opacityFrom: 0.7,
-                    opacityTo: 0.9,
-                    stops: [0, 100]
+                    inverseColors: !1,
+                    opacityFrom: .40,
+                    opacityTo: .05,
+                    stops: [45, 100]
                 }
             },
-            yaxis:{
-                title:{
-                    text: 'meters (m)'
-                }
-            }
-        },
-        series:
-            [{
-                name: this.props.nama,
-                data: [["2020-03-25T07:37:18.150Z", 30.95],["2020-04-25T07:37:18.150Z", 31.05]]
-            }]
+        }
     }
 
     componentDidMount(){
@@ -68,7 +56,7 @@ class TimeSeries extends Component {
             <Fragment>
                 <div id="chart">
                     <div id="chart-timeline">
-                        <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} width={600} />
+                        <ReactApexChart options={this.state.options} series={this.props.series} type="area" height={100} width={253} />
                     </div>
                 </div>
             </Fragment>

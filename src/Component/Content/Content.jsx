@@ -14,6 +14,7 @@ import Weather from '../Weather/Weather'
 import Analog from '../Clock/Analog/Analog'
 import Kalender from '../Kalender/Kalender'
 import Chart from '../Chart/Chart'
+import Monitor from '../Monitor/Monitor'
 
 // import Chart from '../Chart/Chart'
 
@@ -23,11 +24,13 @@ return (
     <div id="content" className="main-content">
         <div className="layout-px-spacing">
             <div className="row layout-top-spacing">
-                
+                <Weather/>
+                <Monitor />
                 <Analog />
                 <Maps />
                 <Notifications />
-                <Weather/>
+                
+                
                 <Chart />
                 {/* <Kalender /> */}
                 {/* <PendingTask />

@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import Axios from 'axios'
 import moment from 'moment'
+import { GlobalConsumer } from '../context/context'
 
 const key = '59f2ab33ebb2defe6a1d5e6f8d546b42'
-    // ganti key dengan ini -> '59f2ab33ebb2defe6a1d5e6f8d546b42' ganti key dengan ini
+    // ganti key dengan ini -> '59f2ab33ebb2defe6a1d5e6f8d546c42' ganti key dengan ini
 const url = `http://api.weatherstack.com/current?access_key=${key}&query=`
 
 export class Weather extends Component {
@@ -31,31 +32,31 @@ export class Weather extends Component {
         SIcon: 'assets/img/icon-weather/day/111.svg'
     }
 
-    componentDidMount(){
-        if (moment().format('HH')>5 && moment().format('HH')<18){
-            this.setState({...this.state, waktu:'day'})
-        } else {
-            this.setState({...this.state, waktu:'night'})
-        }
-        navigator.geolocation.getCurrentPosition((data)=>{
-            this.setState({...this.state, koordinate:{
-                lat:data.coords.latitude,
-                lon:data.coords.longitude
-            }})
-            Axios.get(`${url}${this.state.koordinate.lat},${this.state.koordinate.lon}`)
-                .then((data)=>{
-                    this.setState({...this.state, current:data.data.current})
-                    this.setState({...this.state, location:data.data.location})
-                    this.setState({...this.state, SIcon:`assets/img/icon-weather/${this.state.waktu}/${this.state.current.weather_code}.svg`})
-                })
-        })
+    // componentDidMount(){
+    //     if (moment().format('HH')>5 && moment().format('HH')<18){
+    //         this.setState({...this.state, waktu:'day'})
+    //     } else {
+    //         this.setState({...this.state, waktu:'night'})
+    //     }
+    //     navigator.geolocation.getCurrentPosition((data)=>{
+    //         this.setState({...this.state, koordinate:{
+    //             lat:data.coords.latitude,
+    //             lon:data.coords.longitude
+    //         }})
+    //         Axios.get(`${url}${this.state.koordinate.lat},${this.state.koordinate.lon}`)
+    //             .then((data)=>{
+    //                 this.setState({...this.state, current:data.data.current})
+    //                 this.setState({...this.state, location:data.data.location})
+    //                 this.setState({...this.state, SIcon:`assets/img/icon-weather/${this.state.waktu}/${this.state.current.weather_code}.svg`})
+    //             })
+    //     })
         
-    }
+    // }
 
     render() {
         return (
             <Fragment>
-            <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+            <div className={`col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing ${this.props.state.weather_enable}`}>
                         <div className="widget widget-card-two">
                             <div className="widget-content">
 
@@ -65,6 +66,14 @@ export class Weather extends Component {
                                         <img src="assets/img/nature1.png" alt="avatar" />
                                     </div>
                                     <div className="media-body">
+                                    <span className="task-action">
+                                            <div className="container">
+                                                <button type="button" onClick={()=>{this.props.dispatch({type:'weather_inactive'})}}
+                                                    className="close" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </span>
                                         <h6>Weather</h6>
                                         <span><img className="mr-2" style={{height:"13px"}} src="assets/img/pin.png" alt="avatar" /></span>
                                         <span style={{fontSize:'small'}} className="text-muted">{this.state.location.name}, {this.state.location.region}, {this.state.location.country}</span>
@@ -98,4 +107,4 @@ export class Weather extends Component {
     }
 }
 
-export default Weather
+export default GlobalConsumer(Weather)
