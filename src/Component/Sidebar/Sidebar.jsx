@@ -66,15 +66,6 @@ class Sidebar extends Component {
                                     </div>
                                 </div>
                             </li>
-                            <li className={`menu ${this.props.state.chart_active}`}>
-                                <div className="dropdown-toggle" onClick={()=>
-                                    {this.props.dispatch({type:'chart_active'})}}>
-                                    <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                                        <span>Site Tigasmos Chart</span>
-                                    </div>
-                                </div>
-                            </li>
                             <li className={`menu ${this.props.state.maps_active}`}>
                                 <div className="dropdown-toggle" onClick={()=>
                                     {this.props.dispatch({type:'maps_active'})}}>
@@ -93,6 +84,27 @@ class Sidebar extends Component {
                                     </div>
                                 </div>
                             </li>
+                            <li className={`menu ${this.props.state.chart_active}`}>
+                                <div className="dropdown-toggle" onClick={()=>
+                                    {this.props.dispatch({type:'chart_active'})}}>
+                                    <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                                        <span>Site Tigasmos Chart</span>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li className={`menu ${this.props.state.tabel_active}`}>
+                                <div className="dropdown-toggle" onClick={()=>
+                                    {this.props.dispatch({type:'tabel_active'})}}>
+                                    <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>                                    
+                                        <span>Data Table</span>
+                                    </div>
+                                </div>
+                            </li>                            
                             <li className="menu menu-heading">
                                 <div className="heading">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -111,24 +123,6 @@ class Sidebar extends Component {
                                         <span>Dasboard</span>
                                     </div>
                                 </div>
-                            </li>
-
-                            
-                            <li className="menu">
-                                <a href="../../documentation/index.html" aria-expanded="false"
-                                    className="dropdown-toggle">
-                                    <div className="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                                            strokeLinecap="round" strokeLinejoin="round"
-                                            className="feather feather-book">
-                                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z">
-                                            </path>
-                                        </svg>
-                                        <span>Documentation</span>
-                                    </div>
-                                </a>
                             </li>
                         </ul>
                     </nav>

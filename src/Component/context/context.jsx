@@ -19,6 +19,8 @@ const GlobalProvider = (Children) => {
                 maps_active:"active",
                 notif_enable:"",
                 notif_active:"active",
+                tabel_enable:"",
+                tabel_active:"active",
             }
 
             
@@ -53,6 +55,12 @@ const GlobalProvider = (Children) => {
                         break
                     case 'notif_inactive':
                         this.setState({...this.state, notif_active:'menu-heading', notif_enable:'d-none'})
+                        break
+                    case 'tabel_active':
+                        this.setState({...this.state, tabel_active:'active', tabel_enable:''})
+                        break
+                    case 'tabel_inactive':
+                        this.setState({...this.state, tabel_active:'menu-heading', tabel_enable:'d-none'})
                         break
                     default :
                         this.setState({...this.state})

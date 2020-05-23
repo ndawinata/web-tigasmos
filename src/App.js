@@ -1,6 +1,5 @@
 import React, { Fragment } from "react"
 import { BrowserRouter as Router, Switch, Route, useParams} from "react-router-dom"
-import Weather from "./Pages/Weather"
 import Dashboard from "./Pages/Dashboard/Dashboard"
 import MapLebar from "./Pages/MapLebar/MapLebar"
 
@@ -20,9 +19,6 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <Dashboard />
-        </Route>
-        <Route path="/weather">
-          <Weather />
         </Route>
         <Route path="/site/:lokasi">
           <Child />
