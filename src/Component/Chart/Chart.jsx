@@ -151,7 +151,7 @@ class Chart extends Component {
     render() {       
         return (
             <Fragment>
-                <div className={`col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing ${this.props.state.chart_enable}`}>
+                <div className={`col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing ${this.props.state.chart_enable}`}>
                     <div className=" widget widget-activity-three">
                         <div className="widget-heading">
                             <h5 className="">Tigasmos Site Chart</h5>
