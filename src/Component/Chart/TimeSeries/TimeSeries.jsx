@@ -6,7 +6,7 @@ class TimeSeries extends Component {
     state={
         options:{
             chart: {
-                id: 'sparkline1',
+                id: this.props.id,
                 type: 'area',
                 height: 160,
                 sparkline: {
@@ -56,7 +56,7 @@ class TimeSeries extends Component {
             <Fragment>
                 <div id="chart">
                     <div id="chart-timeline">
-                        <ReactApexChart options={this.state.options} series={this.props.series} type="area" height={100} width={253} />
+                        <ReactApexChart options={this.state.options} series={this.props.series} type="area" height={100}  />
                     </div>
                 </div>
             </Fragment>

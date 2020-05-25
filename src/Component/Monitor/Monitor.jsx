@@ -1,15 +1,17 @@
 import React, { Component, Fragment } from 'react'
 import Axios from 'axios'
-import ReactApexChart from 'react-apexcharts'
 import socketIOClient from 'socket.io-client'
-import { GlobalConsumer } from '../context/context'
 import TimeSeries from '../Chart/TimeSeries/TimeSeries'
+import ApexCharts from "apexcharts"
 
 const io = socketIOClient("http://localhost:5000")
 
 export class Monitor extends Component {
 
     state = {
+        nSite1:0,
+        nSite2:0,
+        nSite3:0,
         seriesA: [{
             name: 'Site 1',
             data: [28, 50, 36, 60, 38, 52, 38]
@@ -23,6 +25,87 @@ export class Monitor extends Component {
             data: [28, 50, 36, 60, 38, 52, 38]
         }]
     };
+
+    componentDidMount(){
+        Axios.get(`http://localhost:5000/api/site-1`)
+                .then((dataf) => {
+                    let b = dataf.data.datas.map((dat)=>dat.pasut_sensor_ultrasonik)
+                    this.setState({
+                        ...this.state,
+                        seriesA:[{
+                            name:'Site 1',
+                            data:b
+                        }]
+                    })
+                    this.setState({
+                        ...this.state,
+                        nSite1:b[b.length-1]
+                    })
+                })
+        Axios.get(`http://localhost:5000/api/site-2`)
+                .then((dataf) => {
+                    let b = dataf.data.datas.map((dat)=>dat.pasut_sensor_ultrasonik)
+                    this.setState({
+                        ...this.state,
+                        seriesB:[{
+                            name:'Site 2',
+                            data:b
+                        }]
+                    })
+                    this.setState({
+                        ...this.state,
+                        nSite2:b[b.length-1]
+                    })
+                })
+        Axios.get(`http://localhost:5000/api/site-3`)
+                .then((dataf) => {
+                    var b = dataf.data.datas.map((dat)=>dat.pasut_sensor_ultrasonik)
+                    this.setState({
+                        ...this.state,
+                        seriesC:[{
+                            name:'Site 3',
+                            data:b
+                        }]
+                    })
+                    this.setState({
+                        ...this.state,
+                        nSite3:b[b.length-1]
+                    })
+                })
+        io.on('site-1',(value)=>{
+            let n = this.state.seriesA[0].data
+            n.push(value.pasut_sensor_ultrasonik)
+            ApexCharts.exec('site1', 'updateSeries', [{
+                data: n
+            }], true);
+            this.setState({
+                ...this.state,
+                nSite1:value.pasut_sensor_ultrasonik
+            })
+        })
+        io.on('site-2',(value)=>{
+            let n = this.state.seriesB[0].data
+            n.push(value.pasut_sensor_ultrasonik)
+            ApexCharts.exec('site2', 'updateSeries', [{
+                data: n
+            }], true);
+            this.setState({
+                ...this.state,
+                nSite2:value.pasut_sensor_ultrasonik
+            })
+        })
+        io.on('site-3',(value)=>{
+            let n = this.state.seriesC[0].data
+            n.push(value.pasut_sensor_ultrasonik)
+            ApexCharts.exec('site3', 'updateSeries', [{
+                data: n
+            }], true);
+            this.setState({
+                ...this.state,
+                nSite3:value.pasut_sensor_ultrasonik
+            })
+        })
+    }
 
     render() {
         return (
@@ -47,12 +130,12 @@ export class Monitor extends Component {
                                         <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
                                     </svg>
                                     </div>
-                                    <p className="w-value">0.23 meter</p>
+                                    <p className="w-value">{this.state.nSite1} meter</p>
                                     <h5 className="">Site 1</h5>
                                 </div>
                                 <div className="widget-content">
                                     <div className="w-chart">
-                                        <TimeSeries series={this.state.seriesA} color='#1b55e2'/>
+                                        <TimeSeries id='site1' series={this.state.seriesA} color='#1b55e2'/>
                                     </div>
                                 </div>
                             </div>
@@ -75,12 +158,12 @@ export class Monitor extends Component {
                                         <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
                                     </svg>
                                     </div>
-                                    <p className="w-value">0.32 meter</p>
+                                    <p className="w-value">{this.state.nSite2} meter</p>
                                     <h5 className="">Site 2</h5>
                                 </div>
                                 <div className="widget-content">
                                     <div className="w-chart">
-                                    <TimeSeries series={this.state.seriesB} color='#e7515a' />
+                                    <TimeSeries id='site2' series={this.state.seriesB} color='#e7515a' />
                                     </div>
                                 </div>
                             </div>
@@ -103,12 +186,12 @@ export class Monitor extends Component {
                                         <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
                                     </svg>
                                     </div>
-                                    <p className="w-value">0.45 meter</p>
+                                    <p className="w-value">{this.state.nSite3} meter</p>
                                     <h5 className="">Site 3</h5>
                                 </div>
                                 <div className="widget-content">
                                     <div className="w-chart">
-                                        <TimeSeries series={this.state.seriesC} color='#8dbf42'/>
+                                        <TimeSeries id='site3' series={this.state.seriesC} color='#8dbf42'/>
                                     </div>
                                 </div>
                             </div>
