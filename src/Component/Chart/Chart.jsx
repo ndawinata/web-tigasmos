@@ -11,7 +11,6 @@ class Chart extends Component {
 
     state={
         site:"site-1",
-        namaSite:["site-1","site-2","site-3"],
         sensor:"tekanan",
         pSensor:'active',
         uSensor:'',
@@ -107,19 +106,6 @@ class Chart extends Component {
         
     }
 
-    fungsiRealtime = (value) =>{
-        io.on(value, (data) => {
-            if (this.state.sensor === 'tekanan') {
-                this.state.series[0].data.push([data.date, data.pasut_sensor_tekanan])
-            } else {
-                this.state.series[0].data.push([data.date, data.pasut_sensor_ultrasonik])
-            }
-            ApexCharts.exec(this.state.options.chart.id, 'updateSeries', [{
-                data: this.state.series[0].data
-            }])
-        })
-    }
-
     componentDidMount(){
         Axios.get(`http://tigasmos-stmkg.my.id:5000/api/${this.state.site}`)
             .then((data)=>{
@@ -128,8 +114,7 @@ class Chart extends Component {
                     data:a
                 }]})
             })
-        // realtime
-        // this.state.namaSite.map(this.fungsiRealtime)
+        
         io.on('site-1', (data) => {
             if (this.state.sensor === 'tekanan') {
                 this.state.series[0].data.push([data.date, data.pasut_sensor_tekanan])
@@ -178,8 +163,7 @@ class Chart extends Component {
         
         
     }
-    render() { 
-        console.log(this.state.options.chart.id)      
+    render() {    
         return (
             <Fragment>
                 <div className={`col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing ${this.props.state.chart_enable}`}>
