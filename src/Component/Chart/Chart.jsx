@@ -5,7 +5,7 @@ import ApexCharts from "apexcharts"
 import socketIOClient from 'socket.io-client'
 import { GlobalConsumer } from '../context/context'
 
-const io = socketIOClient("http://localhost:5000")
+const io = socketIOClient("http://tigasmos-stmkg.my.id:5000")
 
 class Chart extends Component {
 
@@ -121,7 +121,7 @@ class Chart extends Component {
     }
 
     componentDidMount(){
-        Axios.get(`http://localhost:5000/api/${this.state.site}`)
+        Axios.get(`http://tigasmos-stmkg.my.id:5000/api/${this.state.site}`)
             .then((data)=>{
                 var a = data.data.datas.map(this.fungsiSeries)
                 this.setState({...this.state, series:[{
@@ -134,7 +134,7 @@ class Chart extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if(prevState.site !== this.state.site | prevState.sensor !== this.state.sensor ){
-            Axios.get(`http://localhost:5000/api/${this.state.site}`)
+            Axios.get(`http://tigasmos-stmkg.my.id:5000/api/${this.state.site}`)
                 .then((data) => {
                     var a = data.data.datas.map(this.fungsiSeries)
                     this.setState({

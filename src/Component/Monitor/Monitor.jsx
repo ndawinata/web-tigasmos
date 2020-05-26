@@ -4,7 +4,7 @@ import socketIOClient from 'socket.io-client'
 import TimeSeries from '../Chart/TimeSeries/TimeSeries'
 import ApexCharts from "apexcharts"
 
-const io = socketIOClient("http://localhost:5000")
+const io = socketIOClient("http://tigasmos-stmkg.my.id:5000")
 
 export class Monitor extends Component {
 
@@ -27,7 +27,7 @@ export class Monitor extends Component {
     };
 
     componentDidMount(){
-        Axios.get(`http://localhost:5000/api/site-1`)
+        Axios.get(`http://tigasmos-stmkg.my.id:5000/api/site-1`)
                 .then((dataf) => {
                     let b = dataf.data.datas.map((dat)=>dat.pasut_sensor_ultrasonik)
                     this.setState({
@@ -42,7 +42,7 @@ export class Monitor extends Component {
                         nSite1:b[b.length-1]
                     })
                 })
-        Axios.get(`http://localhost:5000/api/site-2`)
+        Axios.get(`http://tigasmos-stmkg.my.id:5000/api/site-2`)
                 .then((dataf) => {
                     let b = dataf.data.datas.map((dat)=>dat.pasut_sensor_ultrasonik)
                     this.setState({
@@ -57,7 +57,7 @@ export class Monitor extends Component {
                         nSite2:b[b.length-1]
                     })
                 })
-        Axios.get(`http://localhost:5000/api/site-3`)
+        Axios.get(`http://tigasmos-stmkg.my.id:5000/api/site-3`)
                 .then((dataf) => {
                     var b = dataf.data.datas.map((dat)=>dat.pasut_sensor_ultrasonik)
                     this.setState({

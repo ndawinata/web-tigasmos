@@ -7,7 +7,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import socketIOClient from 'socket.io-client'
 import {GlobalConsumer} from '../context/context'
 
-const io = socketIOClient("http://localhost:5000")
+const io = socketIOClient("http://tigasmos-stmkg.my.id:5000")
 
 class Notifications extends Component {
 
@@ -37,7 +37,7 @@ class Notifications extends Component {
     }
 
     componentDidMount(){
-        axios('http://localhost:5000/api/notif')
+        axios('http://tigasmos-stmkg.my.id:5000/api/notif')
             .then((value) => {
             let reverseData=value.data.datas.reverse()
             this.setState({data:reverseData})

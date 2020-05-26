@@ -4,7 +4,7 @@ import "./modules-widgets.css"
 import socketIOClient from 'socket.io-client'
 import moment from 'moment'
 
-const io = socketIOClient("http://localhost:5000")
+const io = socketIOClient("http://tigasmos-stmkg.my.id:5000")
 
 class Header extends Component {
   state = {

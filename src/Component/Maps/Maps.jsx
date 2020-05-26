@@ -42,20 +42,20 @@ const Maps = (props) => {
 
   useEffect(() => {
     
-      let io = socketIOClient("http://localhost:5000")
+      let io = socketIOClient("http://tigasmos-stmkg.my.id:5000")
       io.on("site-1", (data) => setNilaiSite1(data))
       io.on("site-2", (data) => setNilaiSite2(data))
       io.on("site-3", (data) => setNilaiSite3(data))
 
-      axios('http://localhost:5000/api/site-1')
+      axios('http://tigasmos-stmkg.my.id:5000/api/site-1')
         .then((value) => {
           setNilaiSite1(value.data.datas[value.data.datas.length-1])
         })
-      axios('http://localhost:5000/api/site-2')
+      axios('http://tigasmos-stmkg.my.id:5000/api/site-2')
         .then((value) => {
           setNilaiSite2(value.data.datas[value.data.datas.length-1])
         })
-      axios('http://localhost:5000/api/site-3')
+      axios('http://tigasmos-stmkg.my.id:5000/api/site-3')
         .then((value) => {
           setNilaiSite3(value.data.datas[value.data.datas.length-1])
         })

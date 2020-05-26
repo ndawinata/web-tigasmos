@@ -96,7 +96,7 @@ class Tabel extends Component {
     }
 
     handleUpdateTable = (input) =>{
-        Axios.get(`http://localhost:5000/api/${input}`)
+        Axios.get(`http://tigasmos-stmkg.my.id:5000/api/${input}`)
                 .then((dataf) => {
                     var a = dataf.data.datas
                     this.setState({
@@ -110,7 +110,7 @@ class Tabel extends Component {
         
     }
     handleUpdateNotif = () =>{
-        Axios.get(`http://localhost:5000/api/notif`)
+        Axios.get(`http://tigasmos-stmkg.my.id:5000/api/notif`)
                 .then((dataf) => {
                     var c = dataf.data.datas
                     this.setState({
@@ -126,7 +126,7 @@ class Tabel extends Component {
         
 
     componentDidMount(){
-        Axios.get(`http://localhost:5000/api/${this.state.site}`)
+        Axios.get(`http://tigasmos-stmkg.my.id:5000/api/${this.state.site}`)
                 .then((data) => {
                     var a = data.data.datas
                     this.setState({
