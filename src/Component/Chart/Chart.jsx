@@ -23,7 +23,7 @@ class Chart extends Component {
         }],
         options:{
             chart: {
-                id: 'area-datetime',
+                id: 'chartS1',
                 type: 'area',
                 height: 350,
                 fontFamily:'Nunito, sans-serif',
@@ -75,7 +75,7 @@ class Chart extends Component {
             }
         }
     }
-
+    
     dispatch = (action) =>{
         switch(action.type){
             case 'tekanan':
@@ -85,13 +85,13 @@ class Chart extends Component {
                 this.setState({...this.state, sensor:'ultrasonik', uSensor:'active', pSensor:''})
                 break
             case 'site_1':
-                this.setState({...this.state, site:'site-1', site1Active:'active', site2Active:'', site3Active:''})
+                this.setState({...this.state, options:{chart:{id:"chartS1"}}, site:'site-1', site1Active:'active', site2Active:'', site3Active:''})
                 break
             case 'site_2':
-                this.setState({...this.state, site:'site-2', site1Active:'', site2Active:'active', site3Active:''})
+                this.setState({...this.state, options:{chart:{id:"chartS2"}}, site:'site-2', site1Active:'', site2Active:'active', site3Active:''})
                 break
             case 'site_3':
-                this.setState({...this.state, site:'site-3', site1Active:'', site2Active:'', site3Active:'active'})
+                this.setState({...this.state, options:{chart:{id:"chartS3"}}, site:'site-3', site1Active:'', site2Active:'', site3Active:'active'})
                 break
             default :
                 this.setState({...this.state})
@@ -114,7 +114,7 @@ class Chart extends Component {
             } else {
                 this.state.series[0].data.push([data.date, data.pasut_sensor_ultrasonik])
             }
-            ApexCharts.exec('area-datetime', 'updateSeries', [{
+            ApexCharts.exec(this.state.options.chart.id, 'updateSeries', [{
                 data: this.state.series[0].data
             }])
         })
@@ -129,7 +129,37 @@ class Chart extends Component {
                 }]})
             })
         // realtime
-        this.state.namaSite.map(this.fungsiRealtime)
+        // this.state.namaSite.map(this.fungsiRealtime)
+        io.on('site-1', (data) => {
+            if (this.state.sensor === 'tekanan') {
+                this.state.series[0].data.push([data.date, data.pasut_sensor_tekanan])
+            } else {
+                this.state.series[0].data.push([data.date, data.pasut_sensor_ultrasonik])
+            }
+            ApexCharts.exec('chartS1', 'updateSeries', [{
+                data: this.state.series[0].data
+            }])
+        })
+        io.on('site-2', (data) => {
+            if (this.state.sensor === 'tekanan') {
+                this.state.series[0].data.push([data.date, data.pasut_sensor_tekanan])
+            } else {
+                this.state.series[0].data.push([data.date, data.pasut_sensor_ultrasonik])
+            }
+            ApexCharts.exec('chartS2', 'updateSeries', [{
+                data: this.state.series[0].data
+            }])
+        })
+        io.on('site-3', (data) => {
+            if (this.state.sensor === 'tekanan') {
+                this.state.series[0].data.push([data.date, data.pasut_sensor_tekanan])
+            } else {
+                this.state.series[0].data.push([data.date, data.pasut_sensor_ultrasonik])
+            }
+            ApexCharts.exec('chartS3', 'updateSeries', [{
+                data: this.state.series[0].data
+            }])
+        })
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -148,7 +178,8 @@ class Chart extends Component {
         
         
     }
-    render() {       
+    render() { 
+        console.log(this.state.options.chart.id)      
         return (
             <Fragment>
                 <div className={`col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing ${this.props.state.chart_enable}`}>
