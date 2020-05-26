@@ -4,7 +4,7 @@ import moment from 'moment'
 import { GlobalConsumer } from '../context/context'
 
 const key = '59f2ab33ebb2defe6a1d5e6f8d546b42'
-    // ganti key dengan ini -> '59f2ab33ebb2defe6a1d5e6f8d546c42' ganti key dengan ini
+    // ganti key dengan ini -> '59f2ab33ebb2defe6a1d5e6f8d546b42' ganti key dengan ini
 const url = `http://api.weatherstack.com/current?access_key=${key}&query=`
 
 export class Weather extends Component {
@@ -29,29 +29,55 @@ export class Weather extends Component {
             country:'Loading...'
         },
         waktu:'day',
-        SIcon: 'assets/img/icon-weather/day/111.svg'
-    }
-
-    // componentDidMount(){
-    //     if (moment().format('HH')>5 && moment().format('HH')<18){
-    //         this.setState({...this.state, waktu:'day'})
-    //     } else {
-    //         this.setState({...this.state, waktu:'night'})
-    //     }
-    //     navigator.geolocation.getCurrentPosition((data)=>{
-    //         this.setState({...this.state, koordinate:{
-    //             lat:data.coords.latitude,
-    //             lon:data.coords.longitude
-    //         }})
-    //         Axios.get(`${url}${this.state.koordinate.lat},${this.state.koordinate.lon}`)
-    //             .then((data)=>{
-    //                 this.setState({...this.state, current:data.data.current})
-    //                 this.setState({...this.state, location:data.data.location})
-    //                 this.setState({...this.state, SIcon:`assets/img/icon-weather/${this.state.waktu}/${this.state.current.weather_code}.svg`})
-    //             })
-    //     })
+        SIcon:'assets/img/icon-weather/day/111.svg',
         
-    // }
+    }
+    setHari(){
+        if (moment().format('HH')>5 && moment().format('HH')<18){
+            return 'day'
+        } else {
+            return 'night'
+        }
+    }
+    setLocation(){
+        navigator.geolocation.getCurrentPosition((pos)=>{
+            var crd = pos.coords;
+            Axios.get(`${url}`+`${crd.latitude}`+','+`${crd.longitude}`)
+                .then((data)=>{
+                    if(data.data.success===false){
+                        this.setState({...this.state})
+                        this.setState({...this.state})
+                    }else{
+                        this.setState({...this.state, current:data.data.current})
+                        this.setState({...this.state, location:data.data.location})
+                    }
+                })
+                .then(()=>
+                this.setState({...this.state, SIcon:`assets/img/icon-weather/${this.setHari()}/${this.state.current.weather_code}.svg`}))
+                
+        },()=> {
+            Axios.get(`${url}`+'-6.263971,106.748863')
+                .then((data)=>{
+                    if(data.data.success===false){
+                        this.setState({...this.state})
+                        this.setState({...this.state})
+                    }else{
+                        this.setState({...this.state, current:data.data.current})
+                        this.setState({...this.state, location:data.data.location})
+                    }
+                })
+                .then(()=>
+                this.setState({...this.state, SIcon:`assets/img/icon-weather/${this.setHari()}/${this.state.current.weather_code}.svg`}))
+            
+        }
+    );
+    }
+    
+
+    componentDidMount(){
+        this.setLocation()
+    }
+    
 
     render() {
         return (
@@ -63,7 +89,7 @@ export class Weather extends Component {
                                 <div className="media">
                                     <div className="w-img">
                                     
-                                        <img src="assets/img/nature1.png" alt="avatar" />
+                                        <img src={process.env.PUBLIC_URL + 'assets/img/nature1.png'} alt="avatar" />
                                     </div>
                                     <div className="media-body">
                                     <span className="task-action">
@@ -75,7 +101,7 @@ export class Weather extends Component {
                                             </div>
                                         </span>
                                         <h6>Weather</h6>
-                                        <span><img className="mr-2" style={{height:"13px"}} src="assets/img/pin.png" alt="avatar" /></span>
+                                        <span><img className="mr-2" style={{height:"13px"}} src={process.env.PUBLIC_URL + 'assets/img/pin.png'} alt="avatar" /></span>
                                         <span style={{fontSize:'small'}} className="text-muted">{this.state.location.name}, {this.state.location.region}, {this.state.location.country}</span>
                                     </div>
                                 </div>
@@ -84,7 +110,7 @@ export class Weather extends Component {
                                     <div className="container my-2">
                                         <div className="d-flex justify-content-around">
                                             <div>
-                                                <img style={{height:"70px"}} src={this.state.SIcon} alt="avatar" />
+                                                <img style={{height:"70px"}} src={process.env.PUBLIC_URL + this.state.SIcon} alt="avatar" />
                                             </div>
                                             <div>
                                                 <h2>{this.state.current.temperature}&deg;C</h2>

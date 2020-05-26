@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { GlobalConsumer } from '../context/context'
+import './style.css'
 
 class Sidebar extends Component {
     render() {
         return (
             <Fragment>
-                {/* {console.log('sidebar : ', props)} */}
                 <div className="sidebar-wrapper sidebar-theme">
                     <nav id="sidebar">
                         <ul className="navbar-nav theme-brand flex-row  text-center">
@@ -22,7 +22,7 @@ class Sidebar extends Component {
                         </ul>
 
                         <ul className="list-unstyled menu-categories" id="accordionExample">
-                            <li className="menu menu-heading">
+                            <li className="menu menu-heading my-2">
                                 <div data-toggle="collapse" aria-expanded="true" className="dropdown-toggle" onClick={()=>
                                     {this.props.dispatch({type:'enable'})}}>
                                     <div>
@@ -41,7 +41,7 @@ class Sidebar extends Component {
                                     <span>ADD COMPONENT</span>
                                 </div>
                             </li>
-                            <li className={`menu ${this.props.state.weather_active}`}>
+                            <li className={`menu ${this.props.state.weather_active} mt-1 mb-3`}>
                                 <div className="dropdown-toggle" onClick={()=>
                                     {this.props.dispatch({type:'weather_active'})}}>
                                     <div>
@@ -50,7 +50,7 @@ class Sidebar extends Component {
                                     </div>
                                 </div>
                             </li>
-                            <li className={`menu ${this.props.state.clock_active}`}>
+                            <li className={`menu ${this.props.state.clock_active} my-3`}>
                                 <div className="dropdown-toggle" onClick={()=>
                                     {this.props.dispatch({type:'clock_active'})}}>
                                     <div>
@@ -66,7 +66,7 @@ class Sidebar extends Component {
                                     </div>
                                 </div>
                             </li>
-                            <li className={`menu ${this.props.state.maps_active}`}>
+                            <li className={`menu ${this.props.state.maps_active} my-3`}>
                                 <div className="dropdown-toggle" onClick={()=>
                                     {this.props.dispatch({type:'maps_active'})}}>
                                     <div>
@@ -75,7 +75,7 @@ class Sidebar extends Component {
                                     </div>
                                 </div>
                             </li>
-                            <li className={`menu ${this.props.state.notif_active}`}>
+                            <li className={`menu ${this.props.state.notif_active} my-3`}>
                                 <div className="dropdown-toggle" onClick={()=>
                                     {this.props.dispatch({type:'notif_active'})}}>
                                     <div>
@@ -84,7 +84,7 @@ class Sidebar extends Component {
                                     </div>
                                 </div>
                             </li>
-                            <li className={`menu ${this.props.state.chart_active}`}>
+                            <li className={`menu ${this.props.state.chart_active} my-3`}>
                                 <div className="dropdown-toggle" onClick={()=>
                                     {this.props.dispatch({type:'chart_active'})}}>
                                     <div>
@@ -93,10 +93,7 @@ class Sidebar extends Component {
                                     </div>
                                 </div>
                             </li>
-                            
-                            
-                            
-                            <li className={`menu ${this.props.state.tabel_active}`}>
+                            <li className={`menu ${this.props.state.tabel_active} mb-1 mt-3`}>
                                 <div className="dropdown-toggle" onClick={()=>
                                     {this.props.dispatch({type:'tabel_active'})}}>
                                     <div>
@@ -104,7 +101,7 @@ class Sidebar extends Component {
                                         <span>Data Table</span>
                                     </div>
                                 </div>
-                            </li>                            
+                            </li>
                             <li className="menu menu-heading">
                                 <div className="heading">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -112,18 +109,11 @@ class Sidebar extends Component {
                                         strokeLinejoin="round" className="feather feather-circle">
                                         <circle cx="12" cy="12" r="10"></circle>
                                     </svg>
-                                    <span>PAGES</span>
+                                    <span>APP VERSION<div className="mt-4 px-4 text-muted version h4">Version 1.0.0</div></span>
+                                    
                                 </div>
-                            </li>
-                            <li className="menu menu-heading">
-                                <div  className="dropdown-toggle" onClick={()=>
-                                    {this.props.dispatch({type:'enable'})}}>
-                                    <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Dasboard</span>
-                                    </div>
-                                </div>
-                            </li>
+                                
+                            </li>                            
                         </ul>
                     </nav>
                 </div>
