@@ -42,7 +42,7 @@ export class Weather extends Component {
     setLocation(){
         navigator.geolocation.getCurrentPosition((pos)=>{
             var crd = pos.coords;
-            Axios.get(`${url}`+`${crd.latitude}`+','+`${crd.longitude}`)
+            Axios.get(`${url}${crd.latitude},${crd.longitude}`)
                 .then((data)=>{
                     if(data.data.success===false){
                         this.setState({...this.state})
@@ -56,7 +56,7 @@ export class Weather extends Component {
                 this.setState({...this.state, SIcon:`assets/img/icon-weather/${this.setHari()}/${this.state.current.weather_code}.svg`}))
                 
         },()=> {
-            Axios.get(`${url}`+'-6.263971,106.748863')
+            Axios.get(`${url}-6.263971,106.748863`)
                 .then((data)=>{
                     if(data.data.success===false){
                         this.setState({...this.state})
@@ -112,10 +112,10 @@ export class Weather extends Component {
                                             <div>
                                                 <img style={{height:"70px"}} src={process.env.PUBLIC_URL + this.state.SIcon} alt="avatar" />
                                             </div>
-                                            <div>
+                                            <div style={{justifyContent:"center", alignItems:"center"}}>
                                                 <h2>{this.state.current.temperature}&deg;C</h2>
                                             </div>
-                                            <div style={{fontSize:"78%", textAlign:"left"}}>
+                                            <div style={{fontSize:"78%", textAlign:"left", marginLeft:15}}>
                                                 <div><b>Humidity : </b>{this.state.current.humidity}%</div>
                                                 <div><b>Pressure : </b>{this.state.current.pressure} mb</div>
                                                 <div><b>Wind Degree : </b>{this.state.current.wind_degree}&deg;</div>
