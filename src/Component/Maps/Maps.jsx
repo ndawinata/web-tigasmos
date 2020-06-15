@@ -22,23 +22,23 @@ const Maps = (props) => {
     pasut_sensor_tekanan:0,
     pasut_sensor_ultrasonik:0
   })
-  const [site1] = useState({
-    lat: -6.2681547,
-    lng: 106.748794
+  const [site1, setSite1] = useState({
+    latitude: -6.249128,
+    longitude: 106.768363
   })
-  const [site2] = useState({
-    lat: -6.249128,
-    lng: 106.768363
+  const [site2, setSite2] = useState({
+    latitude: -6.249128,
+    longitude: 106.768363
   })
-  const [site3] = useState({
-    lat: -6.276942,
-    lng: 106.803831
+  const [site3, setSite3] = useState({
+    latitude: -6.276942,
+    longitude: 106.803831
   })
-  const [center] = useState({
-    lat: -6.252508,
-    lng: 106.769867
+  const [center, setCenter] = useState({
+    centerlat: -6.252508,
+    centerlon: 106.769867
   })
-  const [zoom] = useState(11)
+  const [zoom] = useState(8)
 
   useEffect(() => {
     
@@ -59,8 +59,17 @@ const Maps = (props) => {
         .then((value) => {
           setNilaiSite3(value.data.datas[value.data.datas.length-1])
         })
+      axios('http://tigasmos-stmkg.my.id:5000/api/lokasi')
+        .then((value) => {
+          setSite1(value.data.datas[0])
+          setSite2(value.data.datas[1])
+          setSite3(value.data.datas[2])
+        })
+      axios('http://tigasmos-stmkg.my.id:5000/api/delta')
+        .then((value) => {
+          setCenter(value.data.datas[0])
+        })
   },[])
-  
   return (
     <Fragment>
       <div className={`col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing ${props.state.maps_enable}`}>
@@ -77,13 +86,13 @@ const Maps = (props) => {
             </div>
           </div>
           <div className="widget-content">
-            <Map fullscreenControl center={[center.lat, center.lng]} zoom={zoom}
+            <Map fullscreenControl center={[center.centerlat, center.centerlon]} zoom={zoom}
               style={{ width: '100%', height: '320px'}}>
               <TileLayer attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-              <MapPopUp nama="Site 1" lokasi={[site1.lat, site1.lng]} nilai={nilaiSite1} />
-              <MapPopUp nama="Site 2" lokasi={[site2.lat, site2.lng]} nilai={nilaiSite2} />
-              <MapPopUp nama="Site 3" lokasi={[site3.lat, site3.lng]} nilai={nilaiSite3} />
+              <MapPopUp nama="Site 1" lokasi={[site1.latitude, site1.longitude]} nilai={nilaiSite1} />
+              <MapPopUp nama="Site 2" lokasi={[site2.latitude, site2.longitude]} nilai={nilaiSite2} />
+              <MapPopUp nama="Site 3" lokasi={[site3.latitude, site3.longitude]} nilai={nilaiSite3} />
             </Map>
           </div>
         </div>
