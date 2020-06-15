@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import "./style.css";
-import "./modules-widgets.css"
 import socketIOClient from 'socket.io-client'
 import moment from 'moment'
 
