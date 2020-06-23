@@ -42,7 +42,7 @@ class Chart extends Component {
                 min: "2020-06-20T21:09:00.947Z",
                 tickAmount: 6,
                 title:{
-                    text: 'Datetime (UTC)',
+                    text: 'Datetime',
                     offsetY: 15,
                     style:{
                         fontSize:'14px'

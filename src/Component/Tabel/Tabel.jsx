@@ -225,9 +225,6 @@ class Tabel extends Component {
                             <div className="text-muted">
                                 sensor 2 : sensor ultrasonik
                             </div>
-                            <div className="text-muted">
-                                Date & Time ( UTC )
-                            </div>
                         </div>
                     </div>
                 </div>
