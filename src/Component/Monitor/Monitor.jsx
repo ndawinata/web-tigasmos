@@ -135,7 +135,7 @@ export class Monitor extends Component {
                                 </div>
                                 <div className="widget-content">
                                     <div className="w-chart">
-                                        <TimeSeries id='site1' series={this.state.seriesA} color='#1b55e2'/>
+                                        <TimeSeries className="py-1" id='site1' series={this.state.seriesA} color='#1b55e2'/>
                                     </div>
                                 </div>
                             </div>

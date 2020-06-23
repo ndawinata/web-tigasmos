@@ -215,7 +215,7 @@ class Tabel extends Component {
                                 </DataTableExtensions>
                             </div>
                         </div>
-                        <div className="widget-content-one">
+                        <div className="widget-content-one m-3">
                         <div className="text-muted">
                                 Note :
                             </div>
@@ -224,6 +224,9 @@ class Tabel extends Component {
                             </div>
                             <div className="text-muted">
                                 sensor 2 : sensor ultrasonik
+                            </div>
+                            <div className="text-muted">
+                                Date & Time ( UTC )
                             </div>
                         </div>
                     </div>

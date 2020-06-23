@@ -39,10 +39,10 @@ class Chart extends Component {
             },
             xaxis: {
                 type: 'datetime',
-                min: new Date('2020-04-22T19:00:00').getTime(),
+                min: "2020-06-20T21:09:00.947Z",
                 tickAmount: 6,
                 title:{
-                    text: 'Datetime',
+                    text: 'Datetime (UTC)',
                     offsetY: 15,
                     style:{
                         fontSize:'14px'
@@ -113,6 +113,11 @@ class Chart extends Component {
                 this.setState({...this.state, series:[{
                     data:a
                 }]})
+                this.setState({...this.state, options:{
+                    xaxis:{
+                        min:data.data.datas[0].date
+                    }
+                }})
             })
         
         io.on('site-1', (data) => {
@@ -185,7 +190,7 @@ class Chart extends Component {
                                     height="250" width="100%" />
                             </div>
                         </div>
-                        <div className="widget-content-one">
+                        <div className="widget-content-one my-4">
                             <div className="row">
                                 <div className="col-6">
                                     <div className="d-flex justify-content-center">

@@ -110,10 +110,14 @@ export class Weather extends Component {
                                     <div className="container my-2">
                                         <div className="d-flex justify-content-around">
                                             <div>
-                                                <img style={{height:"70px"}} src={process.env.PUBLIC_URL + this.state.SIcon} alt="avatar" />
+                                                <div className="my-2" >
+                                                    <img style={{height:"70px"}} src={process.env.PUBLIC_URL + this.state.SIcon} alt="avatar" />
+                                                </div>
                                             </div>
-                                            <div style={{justifyContent:"center", alignItems:"center"}}>
-                                                <h2>{this.state.current.temperature}&deg;C</h2>
+                                            <div>
+                                                <div className="my-4" >
+                                                    <h2>{this.state.current.temperature}&deg;C</h2>
+                                                </div>
                                             </div>
                                             <div style={{fontSize:"78%", textAlign:"left", marginLeft:15}}>
                                                 <div><b>Humidity : </b>{this.state.current.humidity}%</div>

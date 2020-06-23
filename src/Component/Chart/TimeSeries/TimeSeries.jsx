@@ -19,7 +19,7 @@ class TimeSeries extends Component {
             },
             labels: ['1', '2', '3', '4', '5', '6', '7'],
             yaxis: {
-                min: 0
+                min: -10
             },
             colors: [this.props.color],
             tooltip: {
@@ -34,7 +34,7 @@ class TimeSeries extends Component {
                     type: "vertical",
                     shadeIntensity: 1,
                     inverseColors: !1,
-                    opacityFrom: .40,
+                    opacityFrom: .65,
                     opacityTo: .05,
                     stops: [45, 100]
                 }
@@ -55,8 +55,8 @@ class TimeSeries extends Component {
         return (
             <Fragment>
                 <div id="chart">
-                    <div id="chart-timeline">
-                        <ReactApexChart options={this.state.options} series={this.props.series} type="area" height={100}  />
+                    <div id="chart-timeline" >
+                        <ReactApexChart options={this.state.options} series={this.props.series} type="area" height={85}  />
                     </div>
                 </div>
             </Fragment>
