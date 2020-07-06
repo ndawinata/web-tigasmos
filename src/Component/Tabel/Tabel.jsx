@@ -17,13 +17,13 @@ class Tabel extends Component {
                 name:'Date',
                 selector:'date',
                 sortable: true,
-                cell: d => moment(d.date).format('D MMMM YYYY')
+                cell: d => moment.utc(d.date).format('D MMMM YYYY')
             },
             {
                 name:'Time',
                 selector:'date',
                 sortable: true,
-                cell: d => moment(d.date).format('HH:mm:ss')
+                cell: d => moment.utc(d.date).format('HH:mm:ss')
             },
             {
                 name:'Lokasi',
@@ -41,13 +41,13 @@ class Tabel extends Component {
                 name:'Date',
                 selector:'date',
                 sortable: true,
-                cell: d => moment(d.date).format('D MMMM YYYY')
+                cell: d => moment.utc(d.date).format('D MMMM YYYY')
             },
             {
                 name:'Time',
                 selector:'date',
                 sortable: true,
-                cell: d => moment(d.date).format('HH:mm:ss')
+                cell: d => moment.utc(d.date).format('HH:mm:ss')
             },
             {
                 name:'Pasut Sensor 1 (m)',
@@ -66,13 +66,13 @@ class Tabel extends Component {
                     name:'Date',
                     selector:'date',
                     sortable: true,
-                    cell: d => moment(d.date).format('D MMMM YYYY')
+                    cell: d => moment.utc(d.date).format('D MMMM YYYY')
                 },
                 {
                     name:'Time',
                     selector:'date',
                     sortable: true,
-                    cell: d => moment(d.date).format('HH:mm:ss')
+                    cell: d => moment.utc(d.date).format('HH:mm:ss')
                 },
                 {
                     name:'Pasut Sensor 1 (m)',
