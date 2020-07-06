@@ -220,6 +220,9 @@ class Tabel extends Component {
                                 Note :
                             </div>
                             <div className="text-muted">
+                                Date & Time (UTC)
+                            </div>
+                            <div className="text-muted">
                                 sensor 1 : sensor tekanan
                             </div>
                             <div className="text-muted">
